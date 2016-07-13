@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	
+	<!-- Коннект к H2 -->
+	<bean id="dataSourceH2" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${h2.jdbc.driverClassName}"/>
+        <property name="url" value="${h2.jdbc.url}"/>
+        <property name="username" value="${h2.jdbc.username}"/>
+        <property name="password" value="${h2.jdbc.password}"/>
+    </bean>
+    
+    <jdbc:initialize-database data-source="dataSourceH2" ignore-failures="DROPS">
+	    <jdbc:script location="classpath:sql/create-db.sql" />
+		<jdbc:script location="classpath:sql/insert-data.sql" />
+	</jdbc:initialize-database>
+	
+	<bean id="connectList" class="com.webdivas.sod.db.ConnectList">
+		<property name="connects">
+			<map>
+				<entry key="dataSourceH2" value-ref="dataSourceH2"></entry>
+				<!-- Коннект к MySql сайт hobotun.com -->
+				<entry key="dsHobotun">
+					<bean id="dsHobotun" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+						<property name="driverClassName" value="${hobotun.jdbc.driverClassName}"/>
+				        <property name="url" value="${hobotun.jdbc.url}"/>
+				        <property name="username" value="${hobotun.jdbc.username}"/>
+				        <property name="password" value="${hobotun.jdbc.password}"/>
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	
+
+	<context:component-scan base-package="com.webdivas.sod"></context:component-scan>
+	<context:property-placeholder location="classpath:application.properties"/>
+	
+</beans>
