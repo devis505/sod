@@ -12,3 +12,7 @@ INSERT INTO sod_query VALUES (1, 'qHbInsertPay',
 INSERT INTO sod_query VALUES (2, 'qHbPayById', 'SELECT * FROM hb_pay p WHERE p.id_pay = :id_pay', 1, 1);
 INSERT INTO sod_query VALUES (3, 'qHbPayAll', 'SELECT * FROM hb_pay p', 1, 1);
 insert into sod_query values (4, 'qHbUser', 'SELECT * FROM hb_user', 1, 1);
+INSERT INTO sod_query VALUES (5, 'qHbUpdatePayStatus', 
+	'UPDATE hb_pay ' || char(10) ||
+    '   SET kd_state = :kd_state ' || char(10) ||
+    ' WHERE id_pay = :id_pay ', 1, 3);
