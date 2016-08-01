@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.google.gson.Gson;
-import com.webdivas.sod.db.ExecuteQueryRepository;
-import com.webdivas.sod.db.QueryRepository;
 import com.webdivas.sod.db.model.Query;
+import com.webdivas.sod.db.repository.ExecuteQueryRepository;
+import com.webdivas.sod.db.repository.QueryRepository;
 import com.webdivas.sod.request.json.JsonRequestParams;
 import com.webdivas.sod.responce.core.IResponceCreator;
 import com.webdivas.sod.responce.json.JsonResponceParams;

@@ -1,6 +1,10 @@
 CREATE TABLE sod_connector (
-  id_connector    INTEGER PRIMARY KEY,
-  nm_id_connector VARCHAR(500) 
+  id_connector INTEGER PRIMARY KEY,
+  nm_connector VARCHAR(500),
+  nm_class 	   VARCHAR(1000),
+  nm_url       VARCHAR(2000),
+  nm_user      VARCHAR(500),
+  nm_pass      VARCHAR(500)
 );
 
 CREATE TABLE sod_query_type (

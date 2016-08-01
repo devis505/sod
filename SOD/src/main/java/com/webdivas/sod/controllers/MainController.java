@@ -23,7 +23,7 @@ public class MainController {
     @RequestMapping(value = "/json", method = RequestMethod.GET)
     public void jsonResponce(@RequestParam("json") String json, HttpServletResponse response) throws IOException {
 
-	logger.info("Получили запрос: " + json);
+	logger.info("РџРѕР»СѓС‡РµРЅ Р·Р°РїСЂРѕСЃ: " + json);
 	String send = "";
 
 	if (json != null) {
@@ -36,7 +36,7 @@ public class MainController {
 	    response.setHeader("Content-Type", "application/json; charset=UTF-8");
 	}
 
-	logger.info("Отправили ответ: " + send);
+	logger.info("РћС‚РїСЂР°РІР»РµРЅ РѕС‚РІРµС‚: " + send);
 	
 	response.getWriter().print(send);
     }

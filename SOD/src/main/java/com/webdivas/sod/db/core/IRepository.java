@@ -16,4 +16,6 @@ public interface IRepository {
     public List<?> getByName(String name);	
     
     public List<?> getByParams(JsonRequestParams params, Query query);
+    
+    public List<?> getAll();
 } 

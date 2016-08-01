@@ -1,4 +1,6 @@
-INSERT INTO sod_connector VALUES (1, 'dsHobotun');
+INSERT INTO sod_connector VALUES (1, 'dsHobotun', 'com.mysql.jdbc.Driver',
+  	'jdbc:mysql://server120.hosting.reg.ru/u0081230_hobotun?useUnicode=true&characterEncoding=utf8',
+  	'u0081230_hobotun', '123456789');
 	
 INSERT INTO sod_query_type VALUES (1, 'SELECT');
 INSERT INTO sod_query_type VALUES (2, 'INSERT');

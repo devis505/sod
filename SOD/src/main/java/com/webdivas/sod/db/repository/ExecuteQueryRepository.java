@@ -1,4 +1,4 @@
-package com.webdivas.sod.db;
+package com.webdivas.sod.db.repository;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -125,6 +125,12 @@ public class ExecuteQueryRepository implements IRepository {
 
 	}
 
+	@Override
+	public List<?> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	class Select extends MappingSqlQuery<Map<String, Object>> {
 
 		public Select(DataSource dataSource, List<SqlParameter> sqlParameters, String queryBody) {
@@ -187,5 +193,4 @@ public class ExecuteQueryRepository implements IRepository {
 		}
 
 	}
-
 }
